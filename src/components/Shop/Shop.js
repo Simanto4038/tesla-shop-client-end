@@ -16,7 +16,7 @@ const Shop = () => {
     const [displayProducts, setDisplayProducts] = useState([]);
      
     useEffect(() => {
-        fetch('http://localhost:5000/productsOutput')
+        fetch('https://pacific-sierra-62926.herokuapp.com/productsOutput')
             .then(res => res.json())
             .then(data => {
                 setProducts(data);
@@ -81,6 +81,7 @@ const Shop = () => {
                     {
                         displayProducts.map(product => 
                             <div className="col-6 col-md-6 col-lg-3 "
+                             key={product.key}
                              style={{height:'600px',
                                     paddingTop:'5PX',
                                     
@@ -88,7 +89,7 @@ const Shop = () => {
 
                             
                         <Product 
-                            key={product.key}
+                            
                             product={product}
                             handleAddToCart={handleAddToCart}
                         />
