@@ -1,12 +1,33 @@
 .product{
     display: flex;
+    flex-direction:"column";
+    
     border-bottom: 1px solid lightgray;
-    margin-right: 5px;
+   
     padding-bottom: 5px;
+    height: 100%;
+    align-items: stretch;
+   
 }
+.product-img{
+    height: 120px;
+    width: 120px;
+    transition: .6s;
+        
+    }
+.product-img:hover{
+    transform: scale(1.15);
+    
+}
+.icon-color:hover {
+    transform: scale(1.25);
+    
+}
+
 .product-name{
     color: blue;
     font-weight: 400;
+    font-size: 12px;
 }
 .btn-regular{
     background-color: goldenrod;
@@ -17,5 +38,5 @@
     cursor: pointer;
 }
 .icon-color{
-    color: gold;
+    color: rgb(255, 0, 98);
 }

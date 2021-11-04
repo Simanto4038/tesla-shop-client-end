@@ -3,7 +3,19 @@
     text-align: center;
     line-height: 40px;
 }
+.search-products-container{
+    background-color: rgba(0, 0, 0, 0);
+    text-align: center;
+    line-height: 40px;
+    
+}
 .search-container input{
+    width: 75%;
+}
+.search-products-container input{
+    border-radius: 20px;
+    padding: 10px;
+    border-color: rgb(9, 207, 221);
     width: 75%;
 }
 .shop-container{

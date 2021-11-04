@@ -5,15 +5,18 @@ import { addToDb } from '../../utilities/fakedb';
 import './Shop.css';
 import useCart from '../../hooks/useCart';
 import { Link } from 'react-router-dom';
+import Banner from './Banner';
+
 
 const Shop = () => {
-    const [products, setProducts] = useState([]);
-    const [cart, setCart] = useCart(products);
+    const [products,setProducts] = useState([]);
+    
+    const {cart, setCart} = useCart(products);
     // products to be rendered on the UI
     const [displayProducts, setDisplayProducts] = useState([]);
-
+     
     useEffect(() => {
-        fetch('./products.JSON')
+        fetch('http://localhost:5000/productsOutput')
             .then(res => res.json())
             .then(data => {
                 setProducts(data);
@@ -51,30 +54,49 @@ const Shop = () => {
 
     return (
         <>
-            <div className="search-container">
-                <input
+            <div className="p-3 mb-5 search-container">
+                <Banner/>
+                
+            </div>
+            <div className="w-75 mx-auto search-products-container">
+            <input  
+                    
                     type="text"
                     onChange={handleSearch}
-                    placeholder="Search Product" />
+                    placeholder="Search Product"
+             />
             </div>
-            <div className="shop-container">
-                <div className="product-container">
-                    {
-                        displayProducts.map(product => <Product
-                            key={product.key}
-                            product={product}
-                            handleAddToCart={handleAddToCart}
-                        >
-                        </Product>)
-                    }
-                </div>
-                <div className="cart-container">
+            <div className="container row gx-0 mx-auto shop-container">
+            <div className="col-12 col-lg-3 p-5 cart-container">
                     <Cart cart={cart}>
                         <Link to="/review">
-                            <button className="btn-regular">Review Your Order</button>
+                            <button className="btn btn-outline-danger">Review Your Order</button>
                         </Link>
                     </Cart>
                 </div>
+                <div className="col-12 col-lg-9 ">
+                    <div className=" container pt-5 row gx-0  g-lg-1 ">
+
+                
+                    {
+                        displayProducts.map(product => 
+                            <div className="col-6 col-md-6 col-lg-3 "
+                             style={{height:'600px',
+                                    paddingTop:'5PX',
+                                    
+                                   }}>
+
+                            
+                        <Product 
+                            key={product.key}
+                            product={product}
+                            handleAddToCart={handleAddToCart}
+                        />
+                        </div>)
+                    }
+                        </div>
+                </div>
+              
             </div>
         </>
     );

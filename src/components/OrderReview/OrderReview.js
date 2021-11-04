@@ -8,7 +8,7 @@ import { useHistory } from 'react-router';
 
 const OrderReview = () => {
     const [products] = useProducts();
-    const [cart, setCart] = useCart(products);
+    const {cart, setCart} = useCart(products);
     const history = useHistory();
 
     const handleRemove = key => {
@@ -24,8 +24,8 @@ const OrderReview = () => {
     }
 
     return (
-        <div className="shop-container">
-            <div className="product-container">
+        <div className="container row">
+            <div className="col-12 col-lg-8">
                 {
                     cart.map(product => <ReviewItem
                         key={product.key}
@@ -34,9 +34,9 @@ const OrderReview = () => {
                     ></ReviewItem>)
                 }
             </div>
-            <div className="cart-container">
+            <div className="col-12 col-lg-4 p-4 mx-auto">
                 <Cart cart={cart}>
-                    <button onClick={handlePlaceOrder} className="btn-regular">Place Order</button>
+                    <button onClick={handlePlaceOrder} className="btn btn-outline-dark">Place Order</button>
                 </Cart>
             </div>
         </div>

@@ -6,11 +6,18 @@ import NotFound from './components/NotFound/NotFound';
 import OrderReview from './components/OrderReview/OrderReview';
 import PlaceOrder from './components/PlaceOrder/PlaceOrder';
 import Shop from './components/Shop/Shop';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Login from './components/Login/Login';
+import Signup from './components/Login/Signup';
+import AuthProvider from './Context/AuthProvider';
+import PrivetRoute from './components/PrivetRoute/PrivetRoute';
+import Footer from './components/Footer/Footer';
 function App() {
   return (
     <div>
-      <Router>
+     
+    <AuthProvider>
+    <Router>
         <Header></Header>
         <Switch>
           <Route exact path="/">
@@ -22,17 +29,25 @@ function App() {
           <Route path="/review">
             <OrderReview></OrderReview>
           </Route>
-          <Route path="/inventory">
+          <PrivetRoute path="/inventory">
             <Inventory></Inventory>
+          </PrivetRoute>
+          <Route path="/logIn">
+           <Login/>
           </Route>
-          <Route path="/placeorder">
+          <Route path="/signUp">
+           <Signup/>
+          </Route>
+          <PrivetRoute path="/placeorder">
             <PlaceOrder></PlaceOrder>
-          </Route>
+          </PrivetRoute>
           <Route path="*">
             <NotFound></NotFound>
           </Route>
         </Switch>
+        <Footer/>
       </Router>
+    </AuthProvider>
 
     </div>
   );
