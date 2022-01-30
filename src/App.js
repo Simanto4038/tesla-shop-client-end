@@ -12,6 +12,9 @@ import Signup from './components/Login/Signup';
 import AuthProvider from './Context/AuthProvider';
 import PrivetRoute from './components/PrivetRoute/PrivetRoute';
 import Footer from './components/Footer/Footer';
+import Catagoris from './components/Header/Catagoris';
+import Home from './components/Home/Home';
+import Fassion from './components/Shop/Fassion';
 function App() {
   return (
     <div>
@@ -21,13 +24,22 @@ function App() {
         <Header></Header>
         <Switch>
           <Route exact path="/">
+            <Home/>
+          </Route>
+          <Route exact path="/home">
+            <Home/>
+          </Route>
+          <Route path="/electronics">
             <Shop></Shop>
           </Route>
-          <Route path="/shop">
-            <Shop></Shop>
+          <Route path="/fassion">
+           <Fassion/>
           </Route>
           <Route path="/review">
             <OrderReview></OrderReview>
+          </Route>
+          <Route path="/products">
+            <Catagoris/>
           </Route>
           <PrivetRoute path="/inventory">
             <Inventory></Inventory>

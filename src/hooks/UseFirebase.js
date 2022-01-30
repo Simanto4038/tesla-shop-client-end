@@ -10,6 +10,7 @@ const UseFirebase = ()=>
   const [email,setEmail]=useState('')
   const [passWord,setPassWord]=useState('')
   const [error,setError] = useState('');
+  const [isLoading,setIsLoading]=useState(true)
   const auth = getAuth();
   const GoogleProvider = new GoogleAuthProvider();
   const GitProvider = new GithubAuthProvider();
@@ -119,11 +120,12 @@ const resetPasword=()=>
             if (user) {
            
               setUser(user)
-              console.log(user);
+              //console.log(user);
             } else {
               // User is signed out
               // ...
             }
+            setIsLoading(false)
           });
     },[])
     return {user,
@@ -138,7 +140,9 @@ const resetPasword=()=>
             handlePasswordchange,
             GitSignInHandler,
             SignoutHandler,
-            resetPasword,}
+            resetPasword,
+            setIsLoading,
+            isLoading}
 }
 
 export default UseFirebase ;

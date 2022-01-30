@@ -5,14 +5,14 @@ import './Product.css';
 import Rating from 'react-rating';
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 
-const Product = (props) => {
+const FassionProduct = (props) => {
     // console.log(props);
     const { name, img, seller, price, stock, star } = props.product;
-
+   
     return (
         <div className="product">
             <Card  style={{width:'100%',border:'0'}}>
-               <Card.Img variant="top" src={img} className="product-img" style={{maxHeight:'150px',maxWidth:'125px',height:'43%',marginInline:'auto'}}  />
+               <Card.Img variant="top" src={img} className="product-img" style={{maxHeight:'170px',maxWidth:'80%',height:'43%',marginInline:'auto'}}  />
                <Card.Body>
                  <Card.Text>
                  <h6 className="product-name">{name}</h6>
@@ -39,4 +39,4 @@ const Product = (props) => {
     );
 };
 
-export default Product;
+export default FassionProduct;

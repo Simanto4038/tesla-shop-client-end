@@ -6,7 +6,7 @@ const useProducts = () => {
     useEffect(() => {
         fetch('https://pacific-sierra-62926.herokuapp.com/productsOutput')
             .then(res => res.json())
-            .then(data => setProducts(data));
+            .then(data => setProducts(data.products));
     }, []);
     return [products, setProducts];
 }

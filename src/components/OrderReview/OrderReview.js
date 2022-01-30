@@ -10,7 +10,7 @@ const OrderReview = () => {
     const [products] = useProducts();
     const {cart, setCart} = useCart(products);
     const history = useHistory();
-
+       
     const handleRemove = key => {
         const newCart = cart.filter(product => product.key !== key);
         setCart(newCart);
@@ -18,25 +18,26 @@ const OrderReview = () => {
     }
 
     const handlePlaceOrder = () => {
-        setCart([]);
-        clearTheCart();
+        // setCart([]);
+        // clearTheCart();
         history.push('/placeorder');
     }
 
     return (
         <div className="container row">
-            <div className="col-12 col-lg-8">
+            
+            <div className="col-12 col-lg-9">
                 {
-                    cart.map(product => <ReviewItem
-                        key={product.key}
-                        product={product}
-                        handleRemove={handleRemove}
-                    ></ReviewItem>)
+                   cart.length? cart.map(product => <ReviewItem
+                    key={product.key}
+                    product={product}
+                    handleRemove={handleRemove}
+                ></ReviewItem>):<h2 className="text-center mt-4">"PLEASE ADD SOME PRODUCTS"</h2>
                 }
             </div>
-            <div className="col-12 col-lg-4 p-4 mx-auto">
-                <Cart cart={cart}>
-                    <button onClick={handlePlaceOrder} className="btn btn-outline-dark">Place Order</button>
+            <div className="col-12 col-lg-3 mt-2 ">
+                <Cart cart={cart} >
+                    <button onClick={handlePlaceOrder} className="btn btn-outline-danger">Place Order</button>
                 </Cart>
             </div>
         </div>

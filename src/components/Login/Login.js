@@ -9,6 +9,7 @@ import initializeAuthentation from '../FirebaseConfigaretion/FirebaseInitializat
 import './logSign.css'
 // import UseFirebase from '../../hooks/UseFirebase';
 import useAuth from '../../hooks/useAuth';
+import UseFirebase from '../../hooks/UseFirebase';
 
 
 initializeAuthentation();
@@ -29,16 +30,18 @@ const {GoogleSignInHandler,
        handleEmailchange,
        handlePasswordchange,
        SignoutHandler,
-       resetPasword,} = useAuth()
+       resetPasword,
+       setIsLoading} =UseFirebase()
 console.log(user);
 
 
 const location = useLocation()
 console.log(location.state?.from);
-const redirect_URL = location.state?.from || '/home'
+const redirect_URL = location.state?.from || '/shop'
 const history = useHistory()
 const HandleGoogleLogIn = ()=>
 { 
+  setIsLoading(true)
   GoogleSignInHandler().then((result) => {
 
     const {displayName,email,photoURL} = result.user;
@@ -53,11 +56,8 @@ const HandleGoogleLogIn = ()=>
   }).catch((error) => {
     // Handle Errors here.
     const errorCode = error.code;
-    const errorMessage = error.message;
-    
     setError(errorCode);
-    // ...
-  });
+  }).finally(()=>setIsLoading(false));
 }
 
 

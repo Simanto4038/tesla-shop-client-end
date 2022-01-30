@@ -1,56 +1,60 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
-import slide1 from './banner101.jpg';
-import slide2 from './banner102.jpg';
-import slide3 from './banner103.jpg';
 import './Banner.css'
 
 const Banner = () => {
     return (
         <div>
-            <Carousel style={{maxHeight:'650px'}}>
-  <Carousel.Item style={{maxHeight:'650px'}}>
+            <Carousel fade style={{maxHeight:'450px'}}>
+  <Carousel.Item style={{maxHeight:'450px'}}>
     <img
-      className="d-block w-100 slideimg img-fluid"
-      src={slide1}
+      className="d-block w-100 h-100 slideimg img-fluid"
+      src="https://i.ibb.co/c8fK7hh/Topbanner4.jpg" 
       alt="First slide"
     />
-    <Carousel.Caption style={{backgroundColor:"rgba(1, 1, 22, 0.4)"}} className='  d-flex flex-column align-items-center justify-content-center h-100'>
-        <p>Unmatched Quality Of Service</p>
+    {/* <Carousel.Caption style={{backgroundColor:"rgba(1, 1, 22, 0.4)"}} className='  d-flex flex-column align-items-center justify-content-center h-100'>
+    
       <h1>WE OFFER BEST QUALITY AND FAST SERVICE</h1>
-      <p>We Never Compromise With Emergency Service & Give our best to support out coustomer who are in need</p>
-    </Carousel.Caption>
+
+    </Carousel.Caption> */}
   </Carousel.Item>
-  <Carousel.Item style={{maxHeight:'650px'}}>
+  <Carousel.Item style={{maxHeight:'450px'}}>
     <img
       className="d-block w-100 slideimg"
-      src={slide2}
+      src="https://i.ibb.co/Qf9DPWs/Topbanner1.jpg" 
       alt="Second slide"
     />
 
-   <Carousel.Caption style={{backgroundColor:"rgba(1, 1, 22, 0.4)"}} className='h-100 d-flex flex-column align-items-center justify-content-center  '>
-        <p>Unmatched Quality Medicines</p>
-      <h1>WE OFFER BEST QUALITY MEDICINE & MEDICARE</h1>
-      <p>Along with this, we offer a dust free, 
-            temperature & humidity controlled environment to 
-            ensure the safety and protection of the medicines.</p>
+   {/* <Carousel.Caption style={{backgroundColor:"rgba(1, 1, 22, 0.4)"}} className='h-100 d-flex flex-column align-items-center justify-content-center  '>
         
-    </Carousel.Caption>
+      <h1>WE OFFER BEST QUALITY PRODUCTS AT AFFORDABLE PRICE</h1>    
+    </Carousel.Caption> */}
+
   </Carousel.Item>
-  <Carousel.Item style={{maxHeight:'650px'}}>
+  <Carousel.Item style={{maxHeight:'450px'}}>
     <img
       className="d-block w-100 slideimg"
-      src={slide3}
+      src="https://i.ibb.co/3vRVVSW/Topbanner10.jpg" 
       alt="Third slide"
     />
 
+  {/* <Carousel.Caption style={{backgroundColor:"rgba(1, 1, 22, 0.4)"}} className='d-flex flex-column align-items-center justify-content-center h-100'>
+      <h1>WE OFFER BEST QUALITY SERVICES</h1>
+    </Carousel.Caption> */}
+
+  </Carousel.Item>
+  <Carousel.Item style={{maxHeight:'450px'}}>
+    <img
+      className="d-block w-100 slideimg"
+      src="https://i.ibb.co/xJsdhyV/Topbanner3.jpg" 
+      alt="Third slide"
+    />
+{/* 
   <Carousel.Caption style={{backgroundColor:"rgba(1, 1, 22, 0.4)"}} className='d-flex flex-column align-items-center justify-content-center h-100'>
         <p>Unmatched Quality Services</p>
       <h1>WE OFFER BEST QUALITY SERVICES</h1>
-      <p>We Never Compromise With Quality Medicines and Our Services</p>
+    </Carousel.Caption> */}
 
-      <button className='pt-2 pb-2 banner-btn'>Call For Ambulance</button>
-    </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
         </div>

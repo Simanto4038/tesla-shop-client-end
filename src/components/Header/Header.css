@@ -18,3 +18,16 @@
 .header nav a:hover{
     background-color: lightgray;
 }
+
+
+.link
+{
+    text-decoration: none;
+    color : white ;
+    
+}
+.linkBox
+{
+    display: flex;
+    justify-content: space-around;
+}

@@ -11,6 +11,7 @@
     border: white 3px solid;
     padding-left: 25px;
     padding-right: 25px;
+   
 }
 .banner-btn:hover
 {
@@ -32,3 +33,9 @@
     transform: scale(1.25);
 }
 
+@media only screen and (max-width: 360px) {
+  
+    .bannerPara{
+        font-size: 12px !important;
+    }
+  }

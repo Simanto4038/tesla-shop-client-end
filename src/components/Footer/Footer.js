@@ -4,13 +4,8 @@ import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div className='mt-5'>
-        
+        <div className='mt-0'>
 
-
-
-
- 
   <footer
           className="text-center text-lg-start text-white"
           style={{backgroundColor:" #1c2331"}}
@@ -65,9 +60,12 @@ const Footer = () => {
                 style={{width:" 60px", backgroundColor: "#7c4dff", height: "2px"}}
                 />
             <p>
-            <span className='h1'>W</span>e are the only pharmacy in Bangladesh to follow the Guidelines for Good Pharmacy Practice (GPP) principles.
-             Following our mission to provide patient centric service, we also offer counseling service to our patients 
-             regarding the medicines and medication practice. 
+            <span className='h1'>W</span>e are one of the fastest growing e-commerce entity 
+             in Bangladesh.We follow our principles of quality service and ensure the quality
+              of goods and security of both buyers and sellers.
+             Following our mission to provide customer centric service, 
+             we also offer refund if any of our product found damaged or defective when delevered to you.
+             
             </p>
           </div>
           
@@ -128,7 +126,7 @@ const Footer = () => {
          className="text-center p-3"
          style={{backgroundColor: "rgba(0, 0, 0, 0.2"}}
          >
-      © 2021 Copyright:Simanto
+      © 2021 Copyright:R.I Ahamed Simanto
     </div>
     
   </footer>

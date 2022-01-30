@@ -1,4 +1,5 @@
 import React from 'react';
+import { Card } from 'react-bootstrap';
 import './Cart.css';
 
 const Cart = (props) => {
@@ -20,7 +21,8 @@ const Cart = (props) => {
     const grandTotal = total + shipping + tax;
     return (
         <div>
-            <h3>Order Summary</h3>
+          <Card className="text-start p-3 bg-dark text-white">
+          <h3>Order Summary</h3>
             <h5>Items Ordered: {totalQuantity}</h5>
             <br />
             <p>Total: {total.toFixed(2)}</p>
@@ -28,6 +30,7 @@ const Cart = (props) => {
             <p>tax: {tax.toFixed(2)}</p>
             <p>Grand Total: {grandTotal.toFixed(2)}</p>
             {props.children}
+          </Card>
         </div>
     );
 };

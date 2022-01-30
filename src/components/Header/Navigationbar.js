@@ -69,8 +69,7 @@ const Navigationbar = () => {
   <Navbar.Collapse id="responsive-navbar-nav">
 
     <Nav className=" w-75 mx-auto linkBox ">
-    <NavLink 
-     className='link' style={{fontWeight: "bold", fontSize:'20px',color:"gray"}} 
+    <NavLink className='link' style={{fontWeight: "bold", fontSize:'20px',color:"gray"}} 
     activeStyle={{ fontSize:'20px', fontWeight: "bold",color: "crimson"}} to="/home">Home</NavLink >
     <NavLink  className='link' style={{fontWeight: "bold", fontSize:'20px',color:"gray"}} 
     activeStyle={{ fontSize:'20px', fontWeight: "bold",color: "crimson"}} to="/about">About</NavLink >

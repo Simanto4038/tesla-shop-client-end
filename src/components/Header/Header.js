@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../../images/logo.png';
 import './Header.css';
 import { Container, Image, Nav, Navbar, Offcanvas, Button, ListGroup, Card} from 'react-bootstrap';
-import './Navbar.css';
+// import './Navbar.css';
 
 import profile from './profile.png';
 
@@ -28,8 +28,8 @@ const Header = () => {
       const handleClose = () => setShow(false);
       const handleShow = () => setShow(true);
       const OrderReview = () => {
-        const [products] = useProducts();
-        const {cart, setCart} = useCart(products);
+        // const [products] = useProducts();
+        const {cart, setCart} = useCart();
         const history = useHistory();
     
         const handleRemove = key => {
@@ -45,8 +45,8 @@ const Header = () => {
         }
     
         return (
-            <div className="container row">
-                <div className="col-12 ">
+            <div className="container row bg-dark text-white">
+                {/* <div className="col-12 ">
                     {
                         cart.map(product => <OrderItem
                             key={product.key}
@@ -54,14 +54,16 @@ const Header = () => {
                             handleRemove={handleRemove}
                         ></OrderItem>)
                     }
-                </div>
-                <div className="col-12 p-4">
-                    <Cart cart={cart}>
-                   <div className="d-flex">
+                </div> */}
+                <div className="col-12 p-4 bg-dark text-white">
+                    <Cart cart={cart} className="bg-dark text-white">
+                   <div className="row g-2">
                    <Link to="/review">
-                            <button className="btn btn-outline-danger m-1">Review Your Order</button>
+                            <button className="btn btn-outline-danger w-100">Review Your Order</button>
                         </Link>
-                    <button onClick={handlePlaceOrder} className="btn btn-outline-dark">Place Order</button>
+                    <div>
+                    <button onClick={handlePlaceOrder} className="btn btn-outline-warning w-100">Place Order</button>
+                    </div>
                    </div>
                     </Cart>
                 </div>
@@ -96,29 +98,30 @@ const OrderItem = (props) => {
         <>
           
     
-          <Offcanvas show={show} placement='end' onHide={handleClose}>
-            <Offcanvas.Header closeButton>
-              <Offcanvas.Title>User Info</Offcanvas.Title>
+          <Offcanvas show={show} placement='end' onHide={handleClose} className="bg-dark text-white">
+            <Offcanvas.Header closeButton className="bg-white text-dark">
+              <Offcanvas.Title >{(displayName||email)?'WELCOME TO TESLA MART':'PLEASE LOG IN'} </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
   
-            <Card className='border border-0'>
-              <div>
-        
-              <Card.Header>Featured </Card.Header>
+            <Card className='border border-0 bg-dark text-white'>
+              
               <div  className='p-2 text-center' >
                   <img src={photoURL? photoURL : profile } style={{height:'55px',width:'55px',borderRadius:"100%"}} alt="" />
               </div>
-              </div>
+            
           
-          <ListGroup variant="flush">
-            <ListGroup.Item>Name: {displayName} </ListGroup.Item>
-            <ListGroup.Item>Email:{email}</ListGroup.Item>
-            <ListGroup.Item><OrderReview/></ListGroup.Item>
+          <ListGroup variant="flush" >
+            <ListGroup.Item className="bg-dark text-white">Name: {displayName} </ListGroup.Item>
+            <ListGroup.Item className="bg-dark text-white">Email:{email}</ListGroup.Item>
+            <ListGroup.Item className="bg-dark text-white"><OrderReview/></ListGroup.Item>
             <ListGroup.Item>
             <Card.Body>
-           <Button onClick={SignoutHandler} className="btn btn-dark">Sign Out</Button>
-           <Button className="btn btn-dark ms-2">Detail</Button>
+             {(displayName||email)?<Button onClick={SignoutHandler} className="btn btn-dark">Sign Out</Button>:
+            <NavLink
+            className='link' style={{fontWeight: "bold",color:"gray"}} 
+           activeStyle={{ fontWeight: "bold",color: "crimson"}} to="/logIn"><Button className="btn btn-dark">LOG IN</Button></NavLink >}
+           
             
           </Card.Body>
             </ListGroup.Item>
@@ -136,18 +139,20 @@ const OrderItem = (props) => {
         <Uppernav/>
     <Navbar collapseOnSelect expand="lg" className="" variant="dark">
     <Container>
-    <Navbar.Brand href="/"> <Image src={logo} style={{height:'60px',width:'105px'}} rounded /></Navbar.Brand>
+    <Navbar.Brand > <Image src={logo} style={{height:'60px',width:'105px'}} rounded /></Navbar.Brand>
     <Navbar.Toggle  style={{color:'crimson',backgroundColor:'crimson'}} aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
   
       <Nav className=" w-75 mx-auto linkBox ">
       <NavLink 
        className='link' style={{fontWeight: "bold", fontSize:'20px',color:"gray"}} 
-      activeStyle={{ fontSize:'20px', fontWeight: "bold",color: "crimson"}} to="/">Home</NavLink >
+      activeStyle={{ fontSize:'20px', fontWeight: "bold",color: "crimson"}} to="/home">Home</NavLink >
       <NavLink  className='link' style={{fontWeight: "bold", fontSize:'20px',color:"gray"}} 
-      activeStyle={{ fontSize:'20px', fontWeight: "bold",color: "crimson"}} to="/shop">Shop</NavLink >
+      activeStyle={{ fontSize:'20px', fontWeight: "bold",color: "crimson"}} to="/products">Products</NavLink >
       <NavLink className='link' style={{fontWeight: "bold", fontSize:'20px',color:"gray"}}
       activeStyle={{fontSize:'20px', fontWeight: "bold",color: "crimson"}} to="/review">Order Review</NavLink >
+         <NavLink className='link' style={{fontWeight: "bold", fontSize:'20px',color:"gray"}}
+      activeStyle={{fontSize:'20px'}} to="/mydash"> My DashBoard </NavLink >
       <NavLink className='link' style={{fontWeight: "bold", fontSize:'20px',color:"gray"}}
       activeStyle={{fontSize:'20px', fontWeight: "bold",color: "crimson"}} to="/inventory">Inventory</NavLink >
       </Nav>
